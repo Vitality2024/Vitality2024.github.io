@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MySQL on Vitality2024-blog</title><link>https://Vitality2024.org/tags/mysql/</link><description>Recent content in MySQL on Vitality2024-blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Vitality2024</copyright><lastBuildDate>Wed, 23 Oct 2024 23:01:39 +0800</lastBuildDate><atom:link href="https://Vitality2024.org/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>数据库管理系统课程笔记</title><link>https://Vitality2024.org/posts/cs/database/thudbgroup_mysql/</link><pubDate>Wed, 23 Oct 2024 23:01:39 +0800</pubDate><guid>https://Vitality2024.org/posts/cs/database/thudbgroup_mysql/</guid><description>&lt;h2 id="sql">SQL
+&lt;/h2>&lt;h3 id="数据定义语言ddl">数据定义语言（DDL）
+&lt;/h3>&lt;p>数据定义语言（Data Definition Language）：用于定义和修改数据库结构，提供创建、修改、删除数据库中的各种对象（例如表、索引、视图和约束等）的命令。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>创建&lt;/th>
+&lt;th>修改&lt;/th>
+&lt;th>删除&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>模式&lt;/td>
+&lt;td>create schema&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>drop scheme&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>表&lt;/td>
+&lt;td>create table&lt;/td>
+&lt;td>alter table&lt;/td>
+&lt;td>drop table&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>视图&lt;/td>
+&lt;td>create view&lt;/td>
+&lt;td>alter view&lt;/td>
+&lt;td>drop view&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>索引&lt;/td>
+&lt;td>create index&lt;/td>
+&lt;td>alter index&lt;/td>
+&lt;td>drop index&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>注意：&lt;strong>在MySQL中模式（SCHEMA）与数据库等价&lt;/strong>。&lt;/p>
+&lt;h4 id="表">表
+&lt;/h4>&lt;h5 id="创建表">创建表
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>语法格式为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">create&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">数据类型&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">数据类型&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">数据类型&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="err">列级完整性约束&lt;/span>&lt;span class="p">]]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="err">表级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="err">表级完整性约束&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>几种完整性约束：&lt;/p>
+&lt;ul>
+&lt;li>not null：指定某列不可为空。&lt;/li>
+&lt;li>unique：某列或者几列不能重复。&lt;/li>
+&lt;li>primary key：某列或者某几列为主键，主键属性必须非空且唯一。&lt;/li>
+&lt;li>foreign key （A1,A2,&amp;hellip;,Am）references s：外键约束表示关系中任意元组在属性（A1,A2,&amp;hellip;Am）上的取值必须对应于关系 s 中某元组在&lt;strong>主码属性&lt;/strong>上的取值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>数据类型&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">数据类型&lt;/th>
+&lt;th style="text-align: center">含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">CHAR(n), CHARACTER(n)&lt;/td>
+&lt;td style="text-align: center">长度为 n 的定长字符串&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">VARCHAR(n)，CHARACTERVARYING(n)&lt;/td>
+&lt;td style="text-align: center">最大长度为 n 的变长字符串&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">INT, INTEGER&lt;/td>
+&lt;td style="text-align: center">整数（4 字节）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">SMALLINT&lt;/td>
+&lt;td style="text-align: center">短整数（2 字节）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">BIGINT&lt;/td>
+&lt;td style="text-align: center">大整数（8 字节）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">FLOAT(n)&lt;/td>
+&lt;td style="text-align: center">可选精度浮点数，精度至少为 n 位数字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">DOUBLE&lt;/td>
+&lt;td style="text-align: center">双精度浮点数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">REAL&lt;/td>
+&lt;td style="text-align: center">浮点数，精度依赖于机器&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">DOUBLE PRECISION&lt;/td>
+&lt;td style="text-align: center">双精度浮点数，精度依赖于机器&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">NUMERIC（p,d)&lt;/td>
+&lt;td style="text-align: center">定点数，由 p 位数字组成，小数点后有 d 位数字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">DECIMAL(p,d), DEC(p,d)&lt;/td>
+&lt;td style="text-align: center">同NUMERIC&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">BOOLEAN&lt;/td>
+&lt;td style="text-align: center">布尔型&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">DATE&lt;/td>
+&lt;td style="text-align: center">日期，格式为 YYYY-MM-DD&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">TIME&lt;/td>
+&lt;td style="text-align: center">时间，格式为 HH:MM:SS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">TIMESTAMP&lt;/td>
+&lt;td style="text-align: center">时间戳类型，格式为 YYYY-MM-DD HH:MM:SS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">INTERVAL&lt;/td>
+&lt;td style="text-align: center">时间间隔类型&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="修改表">修改表
+&lt;/h5>&lt;ul>
+&lt;li>
+&lt;p>添加列&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">alter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">add&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">column&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">数据类型&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>删除列&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">alter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">drop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">column&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">restrict&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">cascade&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>restrict：如果该列被其他列引用，则无法删除该列。&lt;/p>
+&lt;p>cascade：引用该列的其他列会和该列同时被删除。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>修改列&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">alter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">alter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">column&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">数据类型&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h5 id="删除表">删除表
+&lt;/h5>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">drop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">restrict&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">cascade&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>drop table语句同时删除表中所有元组和该表的关系模式。&lt;/p>
+&lt;p>当使用级联选项删除表时，引用该表的其他表也会被删除。&lt;/p>
+&lt;h4 id="索引">索引
+&lt;/h4></description></item></channel></rss>
