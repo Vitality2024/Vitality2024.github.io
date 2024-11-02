@@ -39,8 +39,8 @@
 &lt;/table>
 &lt;p>注意：&lt;strong>在MySQL中模式（SCHEMA）与数据库等价&lt;/strong>。&lt;/p>
 &lt;h4 id="表">表
-&lt;/h4>&lt;h5 id="创建表">创建表
-&lt;/h5>&lt;ul>
+&lt;/h4>&lt;p>&lt;strong>创建表&lt;/strong>&lt;/p>
+&lt;ul>
 &lt;li>
 &lt;p>语法格式为：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -155,8 +155,8 @@
 &lt;/table>
 &lt;/li>
 &lt;/ul>
-&lt;h5 id="修改表">修改表
-&lt;/h5>&lt;ul>
+&lt;p>&lt;strong>修改表&lt;/strong>&lt;/p>
+&lt;ul>
 &lt;li>
 &lt;p>添加列&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -193,8 +193,8 @@
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;h5 id="删除表">删除表
-&lt;/h5>&lt;div class="highlight">&lt;div class="chroma">
+&lt;p>&lt;strong>删除表&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
@@ -204,8 +204,55 @@
 &lt;/div>
 &lt;/div>&lt;p>drop table语句同时删除表中所有元组和该表的关系模式。&lt;/p>
 &lt;p>当使用级联选项删除表时，引用该表的其他表也会被删除。&lt;/p>
-&lt;h4 id="索引">索引
-&lt;/h4></description></item><item><title>Hello</title><link>https://Vitality2024.org/posts/test/hello/</link><pubDate>Wed, 09 Oct 2024 12:08:31 +0800</pubDate><guid>https://Vitality2024.org/posts/test/hello/</guid><description>&lt;h1 id="hello-hugo">Hello, Hugo!
+&lt;h4 id="视图">视图
+&lt;/h4>&lt;p>&lt;strong>创建视图&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">create&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">view&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">视图名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">])]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">子查询&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>子查询：任何 select 语句。&lt;/li>
+&lt;li>执行 create view 语句时并不执行其中的子查询语句，只把视图的定义存入数据字典。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>修改视图&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">alter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">view&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">视图名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">子查询&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>删除视图&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">drop&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">view&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">视图名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">cascade&lt;/span>&lt;span class="p">];&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>cascade：该视图和该视图导出的视图都会被删除。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>物化视图&lt;/strong>&lt;/p>
+&lt;p>一些数据库支持物化视图，将视图存储在数据库中。&lt;/p>
+&lt;p>物化视图的创建、修改和删除相较于视图多了关键字 MATERIALIZED.&lt;/p>
+&lt;p>例如创建物化视图的命令为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">create&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">materialized&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">view&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">物化视图名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[(&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[,&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">...&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">列名&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">])]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">as&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">子查询&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数据操纵语言dml">数据操纵语言（DML）
+&lt;/h3>&lt;p>Data Manipulation Language：数据的增删改查。&lt;/p></description></item><item><title>Hello</title><link>https://Vitality2024.org/posts/test/hello/</link><pubDate>Wed, 09 Oct 2024 12:08:31 +0800</pubDate><guid>https://Vitality2024.org/posts/test/hello/</guid><description>&lt;h1 id="hello-hugo">Hello, Hugo!
 &lt;/h1>&lt;h2 id="二级标题">二级标题
 &lt;/h2>$$
 f(x) = (x + 1) ^ 2
